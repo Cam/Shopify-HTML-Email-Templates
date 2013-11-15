@@ -1,0 +1,55 @@
+<!-- include a logo -->
+{{ 'logo.png' | asset_url | img_tag }}
+
+<!-- basic info -->
+<p>Thank you for placing your order with {{ shop_name }}!</p>
+
+<p>This email is to confirm your recent order.</p>
+
+<p>Date {{ date | date: "%m/%d/%Y" }}</p>
+
+<!-- shipping info -->
+{% if requires_shipping %}
+	<p>
+		<b>Shipping address</b><br /> 
+		{{ shipping_address.name }}<br /> 
+		{{ shipping_address.street }}<br /> 
+		{{ shipping_address.city }}<br /> 
+		{{ shipping_address.province }} 
+		{{ shipping_address.zip }}<br /> 
+		{{ shipping_address.country }}
+	</p>
+{% endif %} 
+
+<!-- billing info -->
+<p>
+	<b>Billing address</b><br /> 
+	{{ billing_address.name }}<br /> 
+	{{ billing_address.street }}<br /> 
+	{{ billing_address.city }}<br /> 
+	{{ billing_address.province }} 
+	{{ billing_address.zip }}<br /> 
+	{{ billing_address.country }}
+</p>
+
+<!-- item info info -->
+<ul>
+	{% for line in line_items %} 
+  		<li> {{ line.quantity }}x {{ line.title }} for {{ line.price | money }} each </li>
+   	{% endfor %} 
+</ul>
+
+<!-- discount info -->
+{% if discounts %} 
+	<p>Discounts: {{ discounts_savings | money_with_currency }}</p>
+{% endif %} 
+
+<!-- totals -->
+<p>Subtotal : {{ subtotal_price | money_with_currency }}</p>
+{% for tax_line in tax_lines %}
+	<p>{{ tax_line.title }} : {{ tax_line.price | money_with_currency }}</p>
+{% endfor %} {% if requires_shipping %}
+<p>Shipping : {{ shipping_price | money_with_currency }}</p>
+{% endif %}
+
+<p>Total : {{ total_price | money_with_currency }}</p>
