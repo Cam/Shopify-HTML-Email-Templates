@@ -1,7 +1,6 @@
-Responsive HTML Templates for Shopify
-=====================================
+# Responsive HTML Templates for Shopify
 
-Templates for all 'customer facing' emails
+### Templates for all 'customer facing' emails:
 
 * Abandoned Checkout Notification	- Sent to a potential customer who has abandoned their checkout
 * Contact Buyer - Used as a default template for 'Email Buyer' emails
@@ -14,3 +13,7 @@ Templates for all 'customer facing' emails
 * Refund Notification	- Sent to the customer when their order is refunded
 * Shipping confirmation - Sent to the customer when an order is shipped
 * Shipping update	- Sent to the customer when an order's shipping information is updated
+
+### More Info
+
+Contact me at http://camgould.com for more info
