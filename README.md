@@ -1,4 +1,4 @@
-# Responsive HTML Templates for Shopify
+## Responsive HTML Email Templates for Shopify
 
 ### Templates for all 'customer facing' emails:
 
