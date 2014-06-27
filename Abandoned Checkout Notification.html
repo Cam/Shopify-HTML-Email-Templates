@@ -25,7 +25,7 @@ When you are ready to add this to your Shopify site. You should use http://zurb.
 <head>
 <meta name="viewport" content="width=device-width" /><!-- IMPORTANT -->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Order Confirmation</title>
+<title>Come Back!</title>
 	
 <!-- <link rel="stylesheet" type="text/css" href="stylesheets/email.css" /> -->
 <style>
@@ -258,7 +258,7 @@ When you are ready to add this to your Shopify site. You should use http://zurb.
 								<a href="{{ shop.url }}" title="{{ shop_name }}"><img src="{{ 'logo.png' | asset_url }}" style="width:70px;height:auto;" /></a>
 							</td>
 							<td align="right">
-								<h6 class="collapse">Order Confirmation</h6>	
+								<h6 class="collapse">Come Back!</h6>	
 							</td>
 						</tr>
 					</table>
@@ -281,7 +281,7 @@ When you are ready to add this to your Shopify site. You should use http://zurb.
 				<tr>
 					<td>
 						<br/>
-						<h3>Thanks{% if billing_address.name %}, {{ billing_address.name }}{% endif %}</h3>
+						<h3>Hi{% if billing_address.name %} {{ billing_address.name }}{% endif %}</h3>
 						
 						<!-- A Real Hero (and a real human being) -->
 						<p><img src="http://placekitten.com/g/600/300" /></p>
@@ -289,16 +289,15 @@ When you are ready to add this to your Shopify site. You should use http://zurb.
 						
 						<br/>
 						
-						<h3>Your Order <small>{{ date | date: "%d/%m/%Y" }}</small></h3>
-						<p>Thank you for placing your order with {{ shop_name }}. This email is to confirm your order has been placed successfully, and will be processed & shipped to you soon.</p>
-							
+						<p>Your {{ shop_name }} cart has been reserved and is waiting for your return!</p>
+						
 						<br/>
 
 						<!-- Line Items -->
 						{% for line in line_items %}
 						<p class="products">
 							<img src="{{ line.product.featured_image | product_img_url: 'small' }}" />
-							<span> {{ line.quantity }}x {{ line.title }} at {{ line.price | money }} each</span>
+							<span> {{ line.quantity }}x {{ line.title }}</span>
 							<div style="clear:both;"></div>
 							<hr>
 						</p>
@@ -309,114 +308,8 @@ When you are ready to add this to your Shopify site. You should use http://zurb.
 						<br/>
 						<br/>
 						
-						<!-- Totals -->
-						<h5><b>Subtotal:</b> {{ subtotal_price | money_with_currency }}</h5>
-						
-						<!-- Totals -->
-						<table class="columns" width="100%">
-							<tr>
-								<td>
-									
-									{% if requires_shipping %}
-										<!--- column 1 -->
-										<table align="left" class="column">
-											<tr>
-												<td>
-													<p><b>Shipping:</b> {{ shipping_price | money_with_currency }}</p>
-												</td>
-											</tr>
-										</table>
-										<!-- /column 1 -->
-									{% endif %}
-									
-									<!-- Discounts -->
-									{% if discounts %}
-										<!--- column 2 -->
-										<table align="left" class="column">
-											<tr>
-												<td>
-													<p><b>Discounts:</b> {{ discounts_savings | money_with_currency }}</p>
-												</td>
-											</tr>
-										</table>
-										<!-- /column 2 -->
-									{% endif %}
-									<!-- /Discounts -->
-									
-									<span class="clear"></span>	
-									
-								</td>
-							</tr>
-						</table>
-						<!-- /Totals -->
-						
-						{% for tax_line in tax_lines %}
-							<p><b>{{ tax_line.title }}:</b> {{ tax_line.price | money_with_currency }}</p>
-						{% endfor %}
-						
-						<br/>
-						<br/>
-						
-						<h4><b>Total: {{ total_price | money_with_currency }}</b></h4>
-						<!-- /Totals -->
-						
-						<br/>
-
-						<!-- address detals -->
-						<table class="columns" width="100%">
-							<tr>
-								<td>
-									{% if requires_shipping and shipping_address %}
-										<!--- column 1 -->
-										<table align="left" class="column">
-											<tr>
-												<td>				
-													<h5 class="">Shipping address</h5>
-													<p class="">
-														{{ shipping_address.name }}<br/>
-														{{ shipping_address.street }}<br/>
-														{{ shipping_address.city }}<br/>
-														{{ shipping_address.province }}
-														{{ shipping_address.zip }}<br/>
-														{{ shipping_address.country }}</p>
-													</p>
-												</td>
-											</tr>
-										</table>
-									<!-- /column 1 -->
-									{% endif %}
-									
-									{% if billing_address %}
-										<!--- column 2 -->
-										<table align="left" class="column">
-											<tr>
-												<td>											
-													<h5 class="">Billing address</h5>								
-													<p class="">
-														{{ billing_address.name }}<br/>
-														{{ billing_address.street }}<br/>
-														{{ billing_address.city }}<br/>
-														{{ billing_address.province }}
-														{{ billing_address.zip }}<br/>
-														{{ billing_address.country }}</p>
-	                								</p>
-												</td>
-											</tr>
-										</table>
-										<!-- /column 2 -->
-									{% endif %}
-									
-									<span class="clear"></span>	
-									
-								</td>
-							</tr>
-						</table>
-						<!-- /address details -->
-						
-						<br/>
-						
 						<p style="text-align:center;">
-							<a class="btn" href="{{ shop.url }}/account">Log in to view your order &raquo;</a>
+							<a class="btn" href="{{ url }}">Complete Your Order</a>
 						</p>	
 					
 					</td>
