@@ -174,25 +174,21 @@ When you are ready to add this to your Shopify site. You should use http://zurb.
 	/* ------------------------------------- 
 			Shopify
 	------------------------------------- */
+	
 	.products {
 		width:100%;
-		height:50px;
+		height:40px;
 		margin:10px 0 10px 0;
 	}
 	.products img {
 		float:left;
-		height:50px;
+		height:40px;
 		width:auto;
 		margin-right:20px;
 	}
 	.products span {
-		padding-top:20px;
-		height:50px;
-		line-height:50px;
-		vertical-align:middle;
-		font-size:16px;
+		font-size:17px;
 	}
-	
 	
 	
 	/* --------------------------------------------------- 
@@ -255,7 +251,7 @@ When you are ready to add this to your Shopify site. You should use http://zurb.
 					<table bgcolor="#ff4259">
 						<tr>
 							<td>
-								<a href="{{ shop.url }}" title="{{ shop_name }}"><img src="{{ 'logo.png' | asset_url }}" style="width:70px;height:auto;" /></a>
+								<a href="{{ shop.url }}" title="{{ shop_name }}" alt="{{ shop_name }}" /><img src="{{ 'logo.png' | asset_url }}" style="width:70px;height:auto;" /></a>
 							</td>
 							<td align="right">
 								<h6 class="collapse">Come Back!</h6>	
@@ -283,9 +279,9 @@ When you are ready to add this to your Shopify site. You should use http://zurb.
 						<br/>
 						<h3>Hi{% if billing_address.name %} {{ billing_address.name }}{% endif %}</h3>
 						
-						<!-- A Real Hero (and a real human being) -->
-						<p><img src="http://placekitten.com/g/600/300" /></p>
-						<!-- /hero -->
+						<!-- You may like to include a Hero Image -->
+						<p><img src="http://placekitten.com/g/600/300" alt="" /></p>
+						<!-- /Hero Image -->
 						
 						<br/>
 						
@@ -310,7 +306,11 @@ When you are ready to add this to your Shopify site. You should use http://zurb.
 						
 						<p style="text-align:center;">
 							<a class="btn" href="{{ url }}">Complete Your Order</a>
-						</p>	
+						</p>
+						
+						<br/>
+						
+						<p><small>If you can't get the button to work, paste this link into your browser: {{ url }}</small></p>
 					
 					</td>
 				</tr>
@@ -334,10 +334,11 @@ When you are ready to add this to your Shopify site. You should use http://zurb.
 				<table>
 				<tr>
 					<td align="center">
-						<a href="{{ shop.url }}" title="{{ shop_name }}"><img src="{{ 'logo.png' | asset_url }}" style="width:40px;height:auto;" /></a>
+						<p>Thank you for shopping at <a href="{{ shop.url }}" style="color:#111111;">{{ shop.name }}</a>!</p>
+						<a href="{{ shop.url }}" title="{{ shop_name }}"><img src="{{ 'logo.png' | asset_url }}" style="width:40px;height:auto;" alt="{{ shop_name }}" /></a>
 						<br/><br/>
 						<p><strong><a href="{{ shop.email }}" style="color:#111111;">{{ shop.email }}</a></strong></p>
-						<p>&copy; {{ shop_name }}</p>
+						<p><small>© {{ shop.name }}</small></p>
 					</td>
 				</tr>
 			</table>

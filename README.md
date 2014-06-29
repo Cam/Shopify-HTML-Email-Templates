@@ -17,3 +17,5 @@
 ### More Info
 
 Contact me at http://camgould.com for more info
+
+![alt text](https://github.com/cam/Shopify-HTML-Email-Templates/raw/master/src/demo-come-back.jpg "Demo Example")
