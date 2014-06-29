@@ -14,8 +14,8 @@
 * Shipping confirmation - Sent to the customer when an order is shipped
 * Shipping update	- Sent to the customer when an order's shipping information is updated
 
+![alt text](https://github.com/Cam/Shopify-HTML-Email-Templates/raw/master/demo-come-back.jpg "Demo Example")
+
 ### More Info
 
 Contact me at http://camgould.com for more info
-
-![alt text](https://github.com/Cam/Shopify-HTML-Email-Templates/raw/master/demo-come-back.jpg "Demo Example")
