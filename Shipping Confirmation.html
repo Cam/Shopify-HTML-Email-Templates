@@ -286,7 +286,7 @@ When you are ready to add this to your Shopify site. You should use http://zurb.
 						
 						<br/>
 						
-						<p>{% if fulfillment.item_count == item_count %}All{% elsif fulfillment_status == 'fulfilled' %}The last{% else %}Some{% endif %} of the items from order {{ name }} have now been shipped:</p>
+						<h5>{% if fulfillment.item_count == item_count %}All{% elsif fulfillment_status == 'fulfilled' %}The last{% else %}Some{% endif %} of the items from order {{ name }} have now been shipped:</h5>
 						
 						<!-- Line Items -->
 						{% for line in fulfillment.fulfillment_line_items %}
@@ -315,22 +315,26 @@ When you are ready to add this to your Shopify site. You should use http://zurb.
 						<p style="text-align:center;">
 							<a class="btn" href="{{ fulfillment.tracking_urls.first }}">View status &raquo;</a>
 						</p>
+						
+						<p><small>If you can't get the button to work, paste this link into your browser: {{ fulfillment.tracking_urls.first }}</small></p>
 
 						<br/>
 
 						{% else %}
-						<p>The tracking details for these items are as follows:</p>
-						<p>{% for tracking_number in fulfillment.tracking_numbers %} {{ tracking_number }}<br/>
+						<p>The tracking details for these items are as follows:</p> {% for tracking_number in fulfillment.tracking_numbers %}, {{ tracking_number }}<br/>
 						{% endfor %}</p>
 						
 						{% for tracking_url in fulfillment.tracking_urls %}
 						<p style="text-align:center;">
 							<a class="btn" href="{{ tracking_url }}">Track your order &raquo;</a>
 						</p>
+						
+						<p><small>If you can't get the button to work, paste this link into your browser: {{ tracking_url }}</small></p>
+												
 						{% endfor %}
 						{% endif %}
 
-						<p>Please allow some time for the status of the shipment to correctly display at the above address.</p>
+						<p><small>Please allow some time for the status of the shipment to correctly display at the above address.</small></p>
 						{% endif %}{% endif %}
 						
 						{% if fulfillment_status != 'fulfilled' %}
