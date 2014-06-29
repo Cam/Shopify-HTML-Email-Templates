@@ -18,4 +18,4 @@
 
 Contact me at http://camgould.com for more info
 
-![alt text](https://github.com/cam/Shopify-HTML-Email-Templates/blob/master/demo-come-back.jpg "Demo Example")
+![alt text](https://github.com/Cam/Shopify-HTML-Email-Templates/master/demo-come-back.jpg "Demo Example")
